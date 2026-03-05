@@ -3,6 +3,7 @@ import Hero from '../components/HomePage/Hero'
 import Bestsellers from '../components/HomePage/Bestsellers'
 import CategoryGrid from '../components/HomePage/CategoryGrid'
 import NewArrivals from '../components/HomePage/NewArrivals'
+import Philosophy from '../components/HomePage/Philosophy'
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Bestsellers></Bestsellers>
       <CategoryGrid></CategoryGrid>
       <NewArrivals></NewArrivals>
+      <Philosophy></Philosophy>
     </div>
   )
 }
