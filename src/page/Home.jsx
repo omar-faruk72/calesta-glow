@@ -2,6 +2,7 @@ import React from 'react'
 import Hero from '../components/HomePage/Hero'
 import Bestsellers from '../components/HomePage/Bestsellers'
 import CategoryGrid from '../components/HomePage/CategoryGrid'
+import NewArrivals from '../components/HomePage/NewArrivals'
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero></Hero>
       <Bestsellers></Bestsellers>
       <CategoryGrid></CategoryGrid>
+      <NewArrivals></NewArrivals>
     </div>
   )
 }
