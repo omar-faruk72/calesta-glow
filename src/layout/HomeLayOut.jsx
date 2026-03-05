@@ -6,7 +6,7 @@ import Footer from '../components/share/Footer'
 export default function HomeLayOut() {
   return (
     <div>
-      <nav>
+      <nav className='sticky top-0 z-50'>
         <Navbar></Navbar>
       </nav>
       <main className=''>

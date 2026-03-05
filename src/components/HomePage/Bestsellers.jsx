@@ -9,7 +9,6 @@ import axiosSecure from '../../hooks/axiosSecure';
 const Bestsellers = () => {
   const useAxios = axiosSecure();
 
-  // TanStack Query দিয়ে ডাটা ফেচিং
   const { data: allProducts = [], isLoading, isError } = useQuery({
     queryKey: ['allBestsellers'],
     queryFn: async () => {
@@ -37,7 +36,7 @@ const Bestsellers = () => {
         {/* Header */}
         <div className="flex justify-between items-end mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Bestsellers</h2>
-          <Link to="/shop" className="group flex items-center text-gray-900 font-medium  pb-1 hover:text-pink-600 transition-all">
+          <Link to="/product" className="group flex items-center text-gray-900 font-medium  pb-1 hover:text-pink-600 transition-all">
             View all products 
             <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
