@@ -9,7 +9,7 @@ export default function HomeLayOut() {
       <nav>
         <Navbar></Navbar>
       </nav>
-      <main className='max-w-7xl mx-auto'>
+      <main className=''>
         <Outlet></Outlet>
       </main>
       <footer>
