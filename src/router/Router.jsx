@@ -8,6 +8,7 @@ import Register from "../page/Register";
 import Login from "../page/Login";
 import About from "../page/About";
 import Contact from "../page/Contact";
+import Product from "../page/Product";
 
 export const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
                 index: true,
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/product',
+                element: <Product></Product>,
             },
             {
                 path: '/about',
