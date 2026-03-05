@@ -1,6 +1,9 @@
 import {
     createBrowserRouter,
 } from "react-router";
+import Home from "../page/Home";
+import HomeLayOut from "../layout/HomeLayOut";
+import Error from "../page/Error";
 
 export const router = createBrowserRouter([
     {
@@ -13,40 +16,6 @@ export const router = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>
             },
-            {
-                path: '/membership',
-                element: <PrivateRoute>
-                    <Membership></Membership>
-                </PrivateRoute>
-            },
-            {
-                path: '/postDetails/:id',
-                element: <PostDetails></PostDetails>
-            },
-            {
-                path: '/login',
-                element: <Login></Login>,
-            },
-            {
-                path: '/about-us',
-                element: <AboutUs></AboutUs>
-            },
-            {
-                path: 'privacy',
-                element: <Privacy></Privacy>
-            },
-            {
-                path: '/blog',
-                element: <Blog></Blog>
-            },
-            {
-                path: '/forbidden',
-                element: <Forbidden></Forbidden>
-            },
-            {
-                path: '/register',
-                element: <Register></Register>
-            }
         ]
     },
 ])
