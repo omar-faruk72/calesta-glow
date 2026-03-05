@@ -5,6 +5,7 @@ import CategoryGrid from '../components/HomePage/CategoryGrid'
 import NewArrivals from '../components/HomePage/NewArrivals'
 import Philosophy from '../components/HomePage/Philosophy'
 import Testimonials from '../components/HomePage/Testimonials'
+import Newsletter from '../components/HomePage/Newsletter'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <NewArrivals></NewArrivals>
       <Philosophy></Philosophy>
       <Testimonials></Testimonials>
+      <Newsletter></Newsletter>
     </div>
   )
 }
