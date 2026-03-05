@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router'
 import Navbar from '../components/share/Navbar'
+import Footer from '../components/share/Footer'
 
 export default function HomeLayOut() {
   return (
@@ -11,7 +12,9 @@ export default function HomeLayOut() {
       <main className='max-w-7xl mx-auto'>
         <Outlet></Outlet>
       </main>
-      <footer></footer>
+      <footer>
+        <Footer></Footer>
+      </footer>
     </div>
   )
 }
