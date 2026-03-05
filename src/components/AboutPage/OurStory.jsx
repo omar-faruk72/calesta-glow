@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 
 const OurStory = () => {
@@ -36,7 +37,7 @@ const OurStory = () => {
                         className="w-full h-full"
                     >
                         <img 
-                            src="https://res.cloudinary.com/dn5t9fhya/image/upload/v1741160456/philosophy-image.jpg" 
+                            src="https://res.cloudinary.com/dn5t9fhya/image/upload/v1772700465/9cbca66683f361cd55645b6e434daf901a06f875_o2encm.jpg" 
                             alt="Luxury Skincare Products" 
                             className="w-full h-full object-cover"
                         />
