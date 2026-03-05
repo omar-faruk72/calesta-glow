@@ -4,6 +4,7 @@ import Bestsellers from '../components/HomePage/Bestsellers'
 import CategoryGrid from '../components/HomePage/CategoryGrid'
 import NewArrivals from '../components/HomePage/NewArrivals'
 import Philosophy from '../components/HomePage/Philosophy'
+import Testimonials from '../components/HomePage/Testimonials'
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
       <CategoryGrid></CategoryGrid>
       <NewArrivals></NewArrivals>
       <Philosophy></Philosophy>
+      <Testimonials></Testimonials>
     </div>
   )
 }
