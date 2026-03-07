@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Loader2, Minus, Plus, Star } from "lucide-react";
 import axiosSecure from "../hooks/axiosSecure";
 import BestSeller from "../components/ProductPage/BestSeller";
+import HandPicked from "../components/ProductPage/HandPicked";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -188,7 +189,7 @@ const ProductDetails = () => {
         </div>
       </div>
     </div>
-
+<HandPicked></HandPicked>
 <BestSeller></BestSeller>
 
     </div>
