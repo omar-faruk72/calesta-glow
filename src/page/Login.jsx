@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Eye, EyeOff, Loader2 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router';
 import toast from 'react-hot-toast';
 import axiosSecure from '../hooks/axiosSecure';
+import { AuthContext } from '../context/AuthContext';
 
 const Login = () => {
+    const { setUser } = useContext(AuthContext);
     const useAxios = axiosSecure();
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
@@ -24,6 +26,7 @@ const Login = () => {
             const res = await useAxios.post('/api/auth/login', loginData);
             
             if (res.data.success) {
+                setUser(res.data.data);
                 toast.success("Login Successful!");
                 localStorage.setItem('token', res.data.token);
                 navigate('/'); 

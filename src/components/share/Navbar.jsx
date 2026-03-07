@@ -5,13 +5,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
+import axiosSecure from '../../hooks/axiosSecure'; 
 
 const Navbar = () => {
   const { user, setUser } = useContext(AuthContext);
+  const useAxios = axiosSecure(); 
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -22,13 +25,35 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleLogout = () => {
-    setUser(null);
-    localStorage.removeItem('token');
-    toast.success("Successfully logged out!");
-    setIsUserDropdownOpen(false);
+  // লগআউট ফাংশনালিটি
+  const handleLogout = async () => {
+  try {
+    const res = await useAxios.post('/api/auth/logout');
+    
+    // কনসোল লগটি ট্রাই-এর একদম শুরুতে দিন দেখার জন্য যে রেসপন্স আসছে কি না
+    console.log("Logout Response:", res.data);
+
+    // অনেক সময় res.data সরাসরি অবজেক্ট হয়, তাই success চেকটা এভাবে করুন
+    if (res.data.success || res.status === 200) {
+      setUser(null);
+      // টোস্ট মেসেজটি আগে দিন
+      toast.success(res.data.message || "Successfully logged out!");
+      
+      setIsUserDropdownOpen(false);
+      setIsMobileMenuOpen(false);
+      
+      // সামান্য ডিলে দিতে পারেন যাতে টোস্টটা ইউজার দেখতে পায়
+      setTimeout(() => {
+        navigate('/login');
+      }, 500);
+    }
+  } catch (error) {
+    console.error("Logout Error Details:", error.response?.data || error.message);
+    setUser(null); 
     navigate('/login');
-  };
+    toast.error("Logged out with session clear.");
+  }
+};
 
   const navLinks = [
     {
@@ -120,7 +145,7 @@ const Navbar = () => {
               <Search className="w-6 h-6 stroke-[1.5]" />
             </button>
 
-            {/* User Icon & Dropdown - Conditional Rendering */}
+            {/* User Icon & Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <button 
                 onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
