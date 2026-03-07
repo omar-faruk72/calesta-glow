@@ -121,9 +121,11 @@ const CartPage = () => {
                 </button>
               </div>
 
-              <button className="w-full mt-6 bg-black text-white px-6 py-4 rounded-md font-bold transition-all flex items-center justify-center gap-2 hover:bg-black/90 active:scale-95">
+              <Link 
+              to={"/checkout"}
+              className="w-full mt-6 bg-black text-white px-6 py-4 rounded-md font-bold transition-all flex items-center justify-center gap-2 hover:bg-black/90 active:scale-95">
                 Proceed to Checkout <ArrowRight className="w-5 h-5" />
-              </button>
+              </Link>
             </div>
           </div>
         )}
