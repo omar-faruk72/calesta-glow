@@ -12,6 +12,7 @@ import Product from "../page/Product";
 import ProductDetails from "../page/ProductDetails";
 import CartPage from "../page/CartPage";
 import CheckoutPage from "../page/CheckoutPage";
+import PaymentSuccess from "../page/PaymentSuccess";
 
 export const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
             {
                 path: "/checkout",
                 element: <CheckoutPage></CheckoutPage>
+            },
+            {
+                path: "/payment/success/:tranId", 
+                element: <PaymentSuccess></PaymentSuccess>
             },
             {
                 path: '/login',
