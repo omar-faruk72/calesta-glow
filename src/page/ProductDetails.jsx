@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { Loader2, Minus, Plus, Star } from "lucide-react";
 import axiosSecure from "../hooks/axiosSecure";
+import BestSeller from "../components/ProductPage/BestSeller";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -39,7 +40,8 @@ const ProductDetails = () => {
   const mainImage = selectedImage || product?.thumbnail;
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12 font-sans">
+    <div>
+      <div className="max-w-7xl mx-auto px-4 py-12 font-sans">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className="flex flex-col md:flex-row-reverse gap-4">
           <div className="flex-1 bg-[#F3F3F3] aspect-square overflow-hidden relative group">
@@ -185,6 +187,10 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+    </div>
+
+<BestSeller></BestSeller>
+
     </div>
   );
 };
