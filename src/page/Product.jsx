@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ChevronLeft, ChevronRight, ShoppingCart, Star, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router'; 
 import axiosSecure from '../hooks/axiosSecure';
+import Newsletter from '../components/HomePage/Newsletter';
 
 const Products = () => {
     const useAxios = axiosSecure();
@@ -52,7 +53,8 @@ const Products = () => {
     if (isError) return <div className="text-center py-20 text-red-500">Something went wrong!</div>;
 
     return (
-        <div className="min-h-screen bg-white font-sans">
+      <div>
+          <div className="min-h-screen bg-white font-sans">
             <div className="bg-[#F5E6D3] border-b border-gray-200">
                 <div className="max-w-7xl mx-auto px-4">
                     <div className="flex items-center justify-between h-14 overflow-x-auto no-scrollbar">
@@ -164,6 +166,8 @@ const Products = () => {
                 )}
             </div>
         </div>
+        <Newsletter></Newsletter>
+      </div>
     );
 };
 
