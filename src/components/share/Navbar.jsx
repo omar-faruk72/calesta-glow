@@ -4,11 +4,13 @@ import { Search, User, ShoppingBag, ChevronDown, Menu, X, LogIn, UserPlus, Histo
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, NavLink, useNavigate } from 'react-router';
 import { AuthContext } from '../../context/AuthContext';
+import { CartContext } from '../../context/CartContext'; 
 import toast from 'react-hot-toast';
 import axiosSecure from '../../hooks/axiosSecure'; 
 
 const Navbar = () => {
   const { user, setUser } = useContext(AuthContext);
+  const { cart } = useContext(CartContext);
   const useAxios = axiosSecure(); 
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,36 +26,28 @@ const Navbar = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
-  // লগআউট ফাংশনালিটি
   const handleLogout = async () => {
-  try {
-    const res = await useAxios.post('/api/auth/logout');
-    
-    // কনসোল লগটি ট্রাই-এর একদম শুরুতে দিন দেখার জন্য যে রেসপন্স আসছে কি না
-    console.log("Logout Response:", res.data);
+    try {
+      const res = await useAxios.post('/api/auth/logout');
+      console.log("Logout Response:", res.data);
 
-    // অনেক সময় res.data সরাসরি অবজেক্ট হয়, তাই success চেকটা এভাবে করুন
-    if (res.data.success || res.status === 200) {
-      setUser(null);
-      // টোস্ট মেসেজটি আগে দিন
-      toast.success(res.data.message || "Successfully logged out!");
-      
-      setIsUserDropdownOpen(false);
-      setIsMobileMenuOpen(false);
-      
-      // সামান্য ডিলে দিতে পারেন যাতে টোস্টটা ইউজার দেখতে পায়
-      setTimeout(() => {
-        navigate('/login');
-      }, 500);
+      if (res.data.success || res.status === 200) {
+        setUser(null);
+        toast.success(res.data.message || "Successfully logged out!");
+        setIsUserDropdownOpen(false);
+        setIsMobileMenuOpen(false);
+        
+        setTimeout(() => {
+          navigate('/login');
+        }, 500);
+      }
+    } catch (error) {
+      console.error("Logout Error Details:", error.response?.data || error.message);
+      setUser(null); 
+      navigate('/login');
+      toast.error("Logged out with session clear.");
     }
-  } catch (error) {
-    console.error("Logout Error Details:", error.response?.data || error.message);
-    setUser(null); 
-    navigate('/login');
-    toast.error("Logged out with session clear.");
-  }
-};
+  };
 
   const navLinks = [
     {
@@ -157,7 +151,7 @@ const Navbar = () => {
                         src={user.image || user.profileImage} 
                         alt={user.name} 
                         className="w-full h-full object-cover"
-                        onError={(e) => e.target.src = `https://ui-avatars.com/api/?name=${user.name}`}
+                        onError={(e) => {e.target.src = `https://ui-avatars.com/api/?name=${user.name}`}}
                       />
                    </div>
                 ) : (
@@ -230,12 +224,14 @@ const Navbar = () => {
               </AnimatePresence>
             </div>
 
-            {/* Shopping Bag */}
+            {/* Shopping Bag - Updated with cart length */}
             <Link to="/cart" className="relative group cursor-pointer">
               <ShoppingBag className="w-6 h-6 text-gray-900 stroke-[1.5]" />
-              <span className="absolute -top-1.5 -right-2 bg-pink-400 text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-sm">
-                0
-              </span>
+              {cart.length > 0 && (
+                <span className="absolute -top-1.5 -right-2 bg-pink-400 text-white text-[10px] font-bold rounded-full h-5 w-5 flex items-center justify-center shadow-sm">
+                  {cart.length}
+                </span>
+              )}
             </Link>
             
             <button className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
@@ -255,6 +251,7 @@ const Navbar = () => {
             transition={{ type: "tween", duration: 0.3 }}
             className="fixed inset-0 z-[100] md:hidden bg-white px-6 py-10"
           >
+            {/* Mobile menu content... (Logo and X icon) */}
             <div className="flex justify-between items-center mb-10">
               <img src="src/assets/image/logo.png" alt="Logo" className="h-12" />
               <X className="w-8 h-8 cursor-pointer text-gray-800" onClick={() => setIsMobileMenuOpen(false)} />
