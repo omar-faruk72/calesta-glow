@@ -5,6 +5,7 @@ import { Loader2, Minus, Plus, Star } from "lucide-react";
 import axiosSecure from "../hooks/axiosSecure";
 import BestSeller from "../components/ProductPage/BestSeller";
 import HandPicked from "../components/ProductPage/HandPicked";
+import Newsletter from "../components/HomePage/Newsletter";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -191,7 +192,7 @@ const ProductDetails = () => {
     </div>
 <HandPicked></HandPicked>
 <BestSeller></BestSeller>
-
+<Newsletter></Newsletter>
     </div>
   );
 };
