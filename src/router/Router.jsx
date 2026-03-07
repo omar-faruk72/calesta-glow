@@ -14,6 +14,7 @@ import CartPage from "../page/CartPage";
 import CheckoutPage from "../page/CheckoutPage";
 import PaymentSuccess from "../page/PaymentSuccess";
 import PaymentFail from "../page/PaymentFail";
+import Profile from "../page/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
             {
                 path: "/payment/fail",
                 element: <PaymentFail></PaymentFail>
+            },
+            {
+                path: "/profile",
+                element: <Profile></Profile>
             },
             {
                 path: '/login',
