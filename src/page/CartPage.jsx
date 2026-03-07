@@ -43,7 +43,7 @@ const CartPage = () => {
         {cart.length === 0 ? (
           <div className="text-center py-24 bg-white rounded-lg shadow-sm border">
             <h2 className="text-3xl font-bold text-gray-800 mb-6">Your cart is empty</h2>
-            <Link to="/" className="bg-pink-500 text-white px-8 py-3 rounded-full font-medium hover:bg-pink-600 transition-all flex items-center justify-center w-60 mx-auto">
+            <Link to="/product" className="bg-pink-500 text-white px-8 py-3 rounded-full font-medium hover:bg-pink-600 transition-all flex items-center justify-center w-60 mx-auto">
               Continue Shopping <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
           </div>
