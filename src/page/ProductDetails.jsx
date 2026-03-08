@@ -30,7 +30,7 @@ const ProductDetails = () => {
   const { data: reviews = [], isLoading: reviewsLoading } = useQuery({
     queryKey: ["reviews", id],
     queryFn: async () => {
-      const res = await axios.get(`http://localhost:5001/api/reviews/get-reviews/${id}`);
+      const res = await axios.get(`https://calesta-beauty-server.vercel.app/api/reviews/get-reviews/${id}`);
       return res.data;
     },
     enabled: !!id,

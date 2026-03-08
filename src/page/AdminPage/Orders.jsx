@@ -23,7 +23,7 @@ const Orders = () => {
   const fetchOrders = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5001/api/shipping/all');
+      const response = await axios.get('https://calesta-beauty-server.vercel.app/api/shipping/all');
       if (response.data?.success) {
         setOrders(response.data.data);
         setFilteredOrders(response.data.data);

@@ -11,7 +11,7 @@ const AdminLayout = () => {
 
   const onLogout = async () => {
     try {
-      const response = await axios.post('http://localhost:5001/api/auth/logout', {}, {
+      const response = await axios.post('https://calesta-beauty-server.vercel.app/api/auth/logout', {}, {
         withCredentials: true 
       });
 

@@ -23,7 +23,7 @@ const Customers = () => {
   const fetchCustomers = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5001/api/auth/all-users');
+      const response = await axios.get('https://calesta-beauty-server.vercel.app/api/auth/all-users');
       if (response.data?.success) {
         setCustomers(response.data.data);
         setFilteredCustomers(response.data.data);

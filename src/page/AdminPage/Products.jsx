@@ -39,7 +39,7 @@ const Products = () => {
   const fetchProducts = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:5001/api/products');
+      const response = await axios.get('https://calesta-beauty-server.vercel.app/api/products');
       if (response.data?.success) {
         setProducts(response.data.data);
         setFilteredProducts(response.data.data);
@@ -108,7 +108,7 @@ const Products = () => {
 
   try {
     // ৪. এপিআই কল
-    const response = await axios.post('http://localhost:5001/api/create-product', data, {
+    const response = await axios.post('https://calesta-beauty-server.vercel.app/api/create-product', data, {
       headers: { 
         'Content-Type': 'multipart/form-data' // ফাইল আপলোডের জন্য এটি জরুরি
       }

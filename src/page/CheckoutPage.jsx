@@ -95,11 +95,11 @@ const CheckoutPage = () => {
       console.log("Sending order data to server:", orderData);
 
       // ৩. আপনার শিপিং কালেকশনে ডাটা পোস্ট করা
-      const dbResponse = await axios.post('http://localhost:5001/api/shipping/create', orderData);
+      const dbResponse = await axios.post('https://calesta-beauty-server.vercel.app/api/shipping/create', orderData);
 
       if (dbResponse.data.success) {
         // ৪. ডাটাবেজে সেভ হওয়ার পর পেমেন্ট গেটওয়েতে রিডাইরেক্ট করার জন্য কল
-        const paymentResponse = await axios.post('http://localhost:5001/api/payment/create-checkout-session', orderData);
+        const paymentResponse = await axios.post('https://calesta-beauty-server.vercel.app/api/payment/create-checkout-session', orderData);
 
         if (paymentResponse.data.success && paymentResponse.data.url) {
           window.location.replace(paymentResponse.data.url);

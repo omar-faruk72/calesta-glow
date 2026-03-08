@@ -13,7 +13,7 @@ const HandPicked = () => {
   } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
-      const res = await axios.get("http://localhost:5001/api/products");
+      const res = await axios.get("https://calesta-beauty-server.vercel.app/api/products");
       return res.data.data;
     },
   });

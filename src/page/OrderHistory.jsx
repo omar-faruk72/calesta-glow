@@ -15,7 +15,7 @@ const OrderHistory = () => {
       if (!user?.email) return;
       try {
         setLoading(true);
-        const response = await axios.get(`http://localhost:5001/api/shipping/my-orders/${user.email}`);
+        const response = await axios.get(`https://calesta-beauty-server.vercel.app/api/shipping/my-orders/${user.email}`);
         if (response.data.success) {
           setOrders(response.data.data);
         }
