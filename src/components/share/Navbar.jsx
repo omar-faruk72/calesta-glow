@@ -77,7 +77,7 @@ const Navbar = () => {
           {/* Left: Logo */}
           <div className="flex-shrink-0">
             <Link to="/">
-              <img src="src/assets/image/logo.png" alt="Calesta Logo" className="h-36 w-36 cursor-pointer" />
+              <img src="/image.png" alt="Calesta Logo" className="h-36 w-36 cursor-pointer" />
             </Link>
           </div>
 

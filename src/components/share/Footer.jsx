@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="space-y-6">
             <Link to="/">
               <img 
-                src="src/assets/image/logo.png" 
+                src="/image.png" 
                 alt="Calesta Logo" 
                 className="h-36 w-36"
               />

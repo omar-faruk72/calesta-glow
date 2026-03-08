@@ -40,7 +40,7 @@ const AdminLayout = () => {
       {/* Logo Section */}
       <div className="mb-12 flex justify-center">
         <Link to="/" onClick={() => setIsSidebarOpen(false)}>
-          <img src="/src/assets/image/logo.png" alt="Logo" className="h-40 w-40 object-contain" />
+          <img src="/image.png" alt="Logo" className="h-40 w-40 object-contain" />
         </Link>
       </div>
 
