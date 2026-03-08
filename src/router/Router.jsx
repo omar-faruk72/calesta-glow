@@ -16,6 +16,7 @@ import Profile from "../page/Profile";
 import PrivateRoute from "./PrivateRoute";
 import UserOrder from "../page/UserOrder";
 import AdminLayout from "../layout/AdminLayout";
+import Overview from "../page/AdminPage/Overview";
 
 export const router = createBrowserRouter([
   {
@@ -93,6 +94,9 @@ export const router = createBrowserRouter([
         <AdminLayout></AdminLayout>
       </PrivateRoute>
     ),
-    children: [{}],
+    children: [{
+        index: true,
+        element: <Overview></Overview>
+    }],
   },
 ]);
