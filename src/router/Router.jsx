@@ -17,6 +17,10 @@ import PrivateRoute from "./PrivateRoute";
 import UserOrder from "../page/UserOrder";
 import AdminLayout from "../layout/AdminLayout";
 import Overview from "../page/AdminPage/Overview";
+import Products from "../page/AdminPage/Products";
+import Orders from "../page/AdminPage/Orders";
+import Customers from "../page/AdminPage/Customers";
+import Settings from "../page/AdminPage/Settings";
 
 export const router = createBrowserRouter([
   {
@@ -94,9 +98,27 @@ export const router = createBrowserRouter([
         <AdminLayout></AdminLayout>
       </PrivateRoute>
     ),
-    children: [{
+    children: [
+        {
         index: true,
         element: <Overview></Overview>
-    }],
+    },
+    {
+        path: "products",
+        element: <Products></Products>
+    },
+    {
+        path: "all-orders",
+        element: <Orders></Orders>
+    },
+    {
+        path: "users",
+        element: <Customers></Customers>
+    },
+    {
+        path: "settings",
+        element: <Settings></Settings>
+    }
+],
   },
 ]);
