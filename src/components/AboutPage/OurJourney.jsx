@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const OurJourney = () => {
     return (
         <section className="bg-white overflow-hidden py-10 md:py-0">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row-reverse items-stretch">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row-reverse items-stretch">
                 
                 {/* Right Side - Text Content */}
                 <div className="w-full md:w-1/2 p-10 md:p-24 flex flex-col justify-center">

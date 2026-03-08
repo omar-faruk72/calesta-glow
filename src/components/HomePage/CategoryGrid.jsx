@@ -45,7 +45,6 @@ const CategoryGrid = () => {
                     {uniqueCategories.map((category) => (
                         <Link 
                             key={category._id} 
-                            to={`/category/${category.name.toLowerCase()}`}
                             className="group relative overflow-hidden rounded-sm block aspect-square bg-gray-200"
                         >
                       

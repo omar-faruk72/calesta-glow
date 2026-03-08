@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const OurStory = () => {
     return (
         <section className="bg-[#F5E6D3] overflow-hidden">
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-stretch">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 flex flex-col md:flex-row items-stretch">
                 
                 {/* Left Side - Text Content */}
                 <div className="w-full md:w-1/2 p-10 md:p-24 flex flex-col justify-center">

@@ -79,7 +79,7 @@ const Hero = () => {
                 transition={{ delay: 0.6, duration: 0.8 }}
                 className="flex flex-wrap gap-4 pt-4"
               >
-                <Link to="/shop" className="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-pink-500 hover:text-white transition-all shadow-lg">
+                <Link to="/product" className="bg-white text-gray-900 px-8 py-3 rounded-full font-semibold hover:bg-pink-500 hover:text-white transition-all shadow-lg">
                   Shop Now
                 </Link>
                 <Link to="/about" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white/10 transition-all backdrop-blur-sm">

@@ -21,6 +21,7 @@ import Products from "../page/AdminPage/Products";
 import Orders from "../page/AdminPage/Orders";
 import Customers from "../page/AdminPage/Customers";
 import Settings from "../page/AdminPage/Settings";
+import Collections from "../page/Collections";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
         index: true,
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/collections",
+        element: <Collections></Collections>
       },
       {
         path: "/product",

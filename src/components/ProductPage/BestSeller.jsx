@@ -1,10 +1,11 @@
-import React from "react";
-import { useQuery } from "@tanstack/react-query";
+import React, { useContext } from 'react';import { useQuery } from "@tanstack/react-query";
 import { Loader2, Star, MoveRight } from "lucide-react";
 import { Link } from "react-router";
 import axios from "axios";
-
+import { CartContext } from '../../context/CartContext'; 
 const BestSeller = () => {
+    const { addToCart } = useContext(CartContext); 
+
   const { data, isLoading, isError } = useQuery({
     queryKey: ["products"],
     queryFn: async () => {
@@ -51,7 +52,9 @@ const BestSeller = () => {
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/5">
-                <button className="bg-white text-black px-6 py-2 shadow-sm font-bold flex items-center gap-2 text-sm uppercase">
+                <button 
+                    onClick={() => addToCart(product)} 
+                className="bg-white text-black px-6 py-2 shadow-sm font-bold flex items-center gap-2 text-sm uppercase">
                   <svg
                     width="16"
                     height="16"

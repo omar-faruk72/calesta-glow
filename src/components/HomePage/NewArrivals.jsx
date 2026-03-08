@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { ShoppingBag, Star, ArrowRight, Loader2 } from 'lucide-react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { Link } from 'react-router';
 import axiosSecure from '../../hooks/axiosSecure';
+import { CartContext } from '../../context/CartContext';
 
 const NewArrivals = () => {
+    const { addToCart } = useContext(CartContext); 
     const useAxios = axiosSecure();
     const { data: allProducts = [], isLoading, isError } = useQuery({
         queryKey: ['allNewArrivals'],
@@ -39,7 +41,7 @@ const NewArrivals = () => {
                         <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">New Arrive</h2>
                     </div>
                     <Link 
-                        to="/shop" 
+                        to="product" 
                         className="group flex items-center text-gray-900 font-medium  pb-1 hover:text-pink-600 transition-all"
                     >
                         View all products 
@@ -67,7 +69,9 @@ const NewArrivals = () => {
                                 
                                 {/* Add to Cart Hover */}
                                 <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                                    <button className="bg-white text-gray-900 px-6 py-3 rounded-md font-bold shadow-lg flex items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                                    <button 
+                                    onClick={() => addToCart(product)} 
+                                    className="bg-white text-gray-900 px-6 py-3 rounded-md font-bold shadow-lg flex items-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                                         <ShoppingBag className="w-5 h-5 mr-2" />
                                         Add to Cart
                                     </button>

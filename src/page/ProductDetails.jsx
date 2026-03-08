@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useParams } from "react-router";
 import { useQuery } from "@tanstack/react-query";
 import { Loader2, Minus, Plus, Star } from "lucide-react";
@@ -7,8 +7,10 @@ import axiosSecure from "../hooks/axiosSecure";
 import BestSeller from "../components/ProductPage/BestSeller";
 import HandPicked from "../components/ProductPage/HandPicked";
 import Newsletter from "../components/HomePage/Newsletter";
+import { CartContext } from "../context/CartContext";
 
 const ProductDetails = () => {
+    const { addToCart } = useContext(CartContext); 
   const { id } = useParams();
   const useAxios = axiosSecure();
   const [quantity, setQuantity] = useState(1);
@@ -138,7 +140,9 @@ const ProductDetails = () => {
                   <Plus size={18} />
                 </button>
               </div>
-              <button className="flex-1 bg-black text-white py-4 px-8 font-bold flex items-center justify-center space-x-2 hover:bg-gray-800 transition-all uppercase tracking-widest text-sm">
+              <button
+                   onClick={() => addToCart(product)} 
+              className="flex-1 bg-black text-white py-4 px-8 font-bold flex items-center justify-center space-x-2 hover:bg-gray-800 transition-all uppercase tracking-widest text-sm">
                 <span>Add to Cart</span>
                 <span className="ml-2">→</span>
               </button>

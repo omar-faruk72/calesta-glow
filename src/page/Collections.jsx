@@ -1,13 +1,11 @@
-import React, { useState, useMemo, useContext, } from 'react';
+import React, { useState, useMemo, } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { ChevronLeft, ChevronRight, ShoppingCart, Star, Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router'; 
 import axiosSecure from '../hooks/axiosSecure';
 import Newsletter from '../components/HomePage/Newsletter';
-import { CartContext } from '../context/CartContext';
 
-const Products = () => {
-    const { addToCart } = useContext(CartContext); 
+const Collections = () => {
     const useAxios = axiosSecure();
     const navigate = useNavigate(); 
         const [currentPage, setCurrentPage] = useState(1);
@@ -58,14 +56,14 @@ const Products = () => {
       <div>
           <div className="min-h-screen bg-white font-sans">
             <div className="bg-[#F5E6D3] border-b border-gray-200">
-                <div className="max-w-7xl mx-auto px-4">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
                     <div className="flex items-center justify-between h-14 overflow-x-auto no-scrollbar">
                         <div className="flex items-center space-x-8">
                             <button 
                                 onClick={() => handleCategoryClick(null)}
                                 className={`text-sm whitespace-nowrap pb-1 transition-all ${!selectedCategoryId ? 'font-bold border-b-2 border-black' : 'font-medium text-gray-600 hover:text-black'}`}
                             >
-                                All Product
+                                Our Collections
                             </button>
                             {categories.map(cat => (
                                 <button 
@@ -93,7 +91,7 @@ const Products = () => {
                     </div>
                 </div>
             </div>
-            <div className="max-w-7xl mx-auto px-4 py-12">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-12">
                 {isLoading ? (
                     <div className="flex flex-col items-center justify-center py-20">
                         <Loader2 className="animate-spin text-gray-400" size={40} />
@@ -115,7 +113,7 @@ const Products = () => {
                                             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                         />
                                         <button 
-                                            onClick={() => addToCart(product)} 
+                                            onClick={(e) => { e.stopPropagation(); }} // কার্ট লজিক এখানে হবে
                                             className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 backdrop-blur-sm text-black px-4 py-2 text-sm font-medium flex items-center space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-sm whitespace-nowrap"
                                         >
                                             <ShoppingCart size={16} />
@@ -173,4 +171,4 @@ const Products = () => {
     );
 };
 
-export default Products;
+export default Collections;

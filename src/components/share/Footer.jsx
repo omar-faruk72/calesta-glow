@@ -16,12 +16,11 @@ const Footer = () => {
               <img 
                 src="src/assets/image/logo.png" 
                 alt="Calesta Logo" 
-                className="h-12 w-auto"
+                className="h-36 w-36"
               />
             </Link>
             <p className="text-gray-500 text-sm leading-relaxed max-w-xs">
-              Lorem ipsum dolor sit amet consectetur. Scelerisque lectus habitasse adipiscing. 
-              আপনার ব্র্যান্ডের একটি সুন্দর ডেসক্রিপশন এখানে দিতে পারেন।
+            Lorem ipsum dolor sit amet consectetur. Scelerisque lectus habitasse adipiscing.
             </p>
             {/* Social Icons */}
             <div className="flex space-x-4">
